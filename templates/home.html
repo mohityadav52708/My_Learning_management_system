@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href='../static/css/home.css'>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Home Page</h1>
+        <!-- Add your home page content here -->
+        <a href="{{ url_for('add_book_route') }}" class="button">Add Book</a>
+        <a href="{{ url_for('view_book') }}" class="button">View Book</a>
+        <form action="{{ url_for('delete_book_route') }}" method="post">
+            <label for="book_id">Enter Book ID to Delete:</label>
+            <input type="text" id="book_id" name="book_id" required>
+            <button type="submit">Delete Book</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Book</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href='../static/css/view_book.css'>
+</head>
+<body>
+    <div class="container">
+        <h1>View Book</h1>
+        <table>
+            <tr>
+                <th>Serial Number</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Availability</th>
+            </tr>
+            {% for book in books %}
+            <tr>
+                <td>{{ book['serial number'] }}</td>
+                <td>{{ book['name'] }}</td>
+                <td>{{ book['author'] }}</td>
+                <td>{{ book['available'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

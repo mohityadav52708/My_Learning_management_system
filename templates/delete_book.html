@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Book</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href='../static/css/delete_book.css'>
+</head>
+<body>
+    <div class="container">
+        <h1>Delete Book</h1>
+        <form action="{{ url_for('delete_book_route') }}" method="post">
+            <label for="book_id">Enter Book ID to Delete:</label>
+            <input type="text" id="book_id" name="book_id" required><br><br>
+            <button type="submit">Delete Book</button>
+        </form>
+    </div>
+</body>
+</html>
