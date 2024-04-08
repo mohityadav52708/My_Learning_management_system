@@ -1,2 +1,4 @@
 flask
 Gunicorn
+pymongo
+python-dotenv
