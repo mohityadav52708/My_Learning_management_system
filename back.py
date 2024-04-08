@@ -1,10 +1,8 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, flash, redirect, url_for, render_template
 from pymongo import MongoClient
 import datetime
 import os
 from dotenv import load_dotenv
-from urllib.parse import quote
-
 
 # Load environment variables
 load_dotenv()

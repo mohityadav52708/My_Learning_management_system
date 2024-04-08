@@ -1,11 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request, redirect, url_for, flash
 from pymongo import MongoClient
 import datetime
 import os
 from dotenv import load_dotenv
-from urllib.parse import quote
 
-
+# Load environment variables
 load_dotenv()
 
 # Access the MongoDB URI from the environment variables
@@ -13,8 +12,8 @@ MONGODB_URI = os.getenv("MONGODB_URI")
 client = MongoClient(MONGODB_URI)
 database = client["endsem"]
 
+
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
 
 
 # Functions for database operations
@@ -62,7 +61,8 @@ def login():
             flash('Login successful!', 'success')
             return redirect(url_for('home'))
         else:
-            return jsonify({"message": "Invalid username or password"}), 401
+            flash('Invalid username or password', 'danger')
+            return redirect(url_for('login'))
     else:
         return render_template('login.html')
 
@@ -75,7 +75,8 @@ def register():
         if register_insert(username, password):
             flash('Username already exists', 'danger')
         else:
-            return jsonify({"message": "User registered successfully"}), 201
+            flash('Registration successful!', 'success')
+            return redirect(url_for('login'))
     return render_template('register.html')
 
 # Route for home page
@@ -115,7 +116,7 @@ def delete_book_route():
             flash('Failed to delete book. Book does not exist', 'danger')
         return redirect(url_for('home'))
     else:
-        return render_template('delete_book.html')
+        return render_template('delete_book.html`')
     
 @app.route('/view', methods=['GET'])
 def view_book():
