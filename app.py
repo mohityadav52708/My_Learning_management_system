@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from pymongo import MongoClient
 import datetime
 import os
@@ -60,8 +60,7 @@ def login():
             flash('Login successful!', 'success')
             return redirect(url_for('home'))
         else:
-            flash('Invalid username or password', 'danger')
-            return redirect(url_for('login'))
+            return jsonify({"message": "Invalid username or password"}), 401
     else:
         return render_template('login.html')
 
@@ -74,8 +73,7 @@ def register():
         if register_insert(username, password):
             flash('Username already exists', 'danger')
         else:
-            flash('Registration successful!', 'success')
-            return redirect(url_for('login'))
+            return jsonify({"message": "User registered successfully"}), 201
     return render_template('register.html')
 
 # Route for home page
@@ -115,7 +113,7 @@ def delete_book_route():
             flash('Failed to delete book. Book does not exist', 'danger')
         return redirect(url_for('home'))
     else:
-        return render_template('delete_book.html`')
+        return render_template('delete_book.html')
     
 @app.route('/view', methods=['GET'])
 def view_book():
