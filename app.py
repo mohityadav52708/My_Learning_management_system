@@ -130,6 +130,4 @@ def view_book():
 def defaulter_identification():
     return render_template('defaulter-identification.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
 
