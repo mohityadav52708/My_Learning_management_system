@@ -1,20 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from pymongo import MongoClient
 import datetime
-import os
-from dotenv import load_dotenv
-
-# Load environment variables
-load_dotenv()
-
-# Access the MongoDB URI from the environment variables
-MONGODB_URI = os.getenv("MONGODB_URI")
-client = MongoClient(MONGODB_URI)
-database = client["endsem"]
-
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'
 
+uri = "mongodb+srv://whitedevil7628:devil010@cluster0.gr1wse1.mongodb.net/"
+client = MongoClient(uri)
+database = client["endsem"]
 
 # Functions for database operations
 def register_insert(username, password):
