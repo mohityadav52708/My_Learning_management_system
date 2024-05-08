@@ -7,7 +7,7 @@ import smtplib
 import ssl
 import random
 import string
-# from flask_mail import Mail, Message
+from flask_mail import Mail, Message
 from flask import request
 from flask import Flask
 from werkzeug.utils import secure_filename
