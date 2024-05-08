@@ -5,27 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Book</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link rel="stylesheet" href='../static/css/view_book.css'>
+    <link rel="stylesheet" href="../static/css/view_book.css">
 </head>
 <body>
     <div class="container">
         <h1>View Book</h1>
-        <table>
+        <!-- Add search form -->
+        <form id="searchForm">
+            <input type="text" id="searchInput" placeholder="Search by name...">
+            <button type="button" id="searchButton">Search</button>
+        </form>
+        <table id="bookTable">
             <tr>
                 <th>Serial Number</th>
                 <th>Name</th>
                 <th>Author</th>
+                <th>Date</th>
+                <th>Price</th>
+                <th>Category</th>
                 <th>Availability</th>
             </tr>
             {% for book in books %}
             <tr>
                 <td>{{ book['serial number'] }}</td>
-                <td>{{ book['name'] }}</td>
-                <td>{{ book['author'] }}</td>
+                <td><b>{{ book['name'] }}</b></td>
+                <td>{{ book['author'] }}</td> 
+                <td>{{ book['date'] }}</td> 
+                <td>{{ book['price'] }}</td> 
+                <td>{{ book['category'] }}</td> 
                 <td>{{ book['available'] }}</td>
+                
+                
             </tr>
             {% endfor %}
         </table>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const bookTable = document.getElementById('bookTable');
+            const rows = bookTable.getElementsByTagName('tr');
+    
+            // Function to perform search
+            function performSearch() {
+                const searchText = searchInput.value.toLowerCase();
+    
+                for (let i = 1; i < rows.length; i++) {
+                    const name = rows[i].getElementsByTagName('td')[1].textContent.toLowerCase();
+                    const serial = rows[i].getElementsByTagName('td')[0].textContent.toLowerCase();
+                    const author = rows[i].getElementsByTagName('td')[2].textContent.toLowerCase();
+                    const display = name.includes(searchText) || serial.includes(searchText) || author.includes(searchText) ? '' : 'none';
+                    rows[i].style.display = display;
+                }
+            }
+    
+            // Search when input value changes
+            searchInput.addEventListener('input', performSearch);
+        });
+    </script>
+    
+    
 </body>
 </html>

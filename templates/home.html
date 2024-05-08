@@ -1,23 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link rel="stylesheet" href='../static/css/home.css'>
-</head>
-<body>
-    <div class="container">
-        <h1>Welcome to the Home Page</h1>
-        <!-- Add your home page content here -->
-        <a href="{{ url_for('add_book_route') }}" class="button">Add Book</a>
-        <a href="{{ url_for('view_book') }}" class="button">View Book</a>
-        <form action="{{ url_for('delete_book_route') }}" method="post">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    <link rel="stylesheet" href="../static/css/home.css" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+    <div class="finalwrapper">
+      <nav id="navbar">
+        <ul>
+          <li><a href="/home" onclick="loadContent('home')">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('about') }}">Blog</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="homescreen_background">
+        <div class="cover_of_small_screen">
+          <div class="right_of_homescreen">
+            <h1 id="heading_of_homescreen">Library Management System</h1>
+          </div>
+        </div>
+      </div>
+      <div class="container" id="content">
+        <div class="add_view_container">
+          <h1>Library Management System</h1>
+          <!-- Add your home page content here -->
+          <a href="{{ url_for('add_book_route') }}" class="button">Add Book</a>
+          <a href="{{ url_for('view_book') }}" class="button">View Book</a>
+          <form action="{{ url_for('delete_book_route') }}" method="post">
             <label for="book_id">Enter Book ID to Delete:</label>
-            <input type="text" id="book_id" name="book_id" required>
+            <input type="text" id="book_id" name="book_id" required />
             <button type="submit">Delete Book</button>
-        </form>
+          </form>
+        </div>
+        <div class="chartwrapper">
+          <div class="mini-chart-wrapper">
+            <div id="bar-chart"></div>
+            <br /><br />
+
+            <!-- Pie Chart -->
+            <div id="pie-chart"></div>
+
+            <!-- Line Graph -->
+            <div id="line-graph"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bar Chart -->
     </div>
-</body>
+    <script>
+      function loadContent(page) {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("content").innerHTML = this.responseText;
+                  // Reinitialize charts after loading content
+                  initCharts();
+              }
+          };
+          xhttp.open("GET", page, true); // Send request directly to the page URL
+          xhttp.send();
+      }
+
+      // Function to initialize charts
+      function initCharts() {
+          // Parse the JSON data for the bar chart
+          var barChartData = {{ bar_chart | safe }};
+
+          // Render the bar chart
+          Plotly.newPlot('bar-chart', barChartData);
+
+          // Parse the JSON data for the pie chart
+          var pieChartData = {{ pie_chart | safe }};
+
+          // Render the pie chart
+          Plotly.newPlot('pie-chart', pieChartData);
+
+          // Parse the JSON data for the line graph
+          var lineGraphData = {{ line_chart | safe }};
+
+          // Render the line graph
+          Plotly.newPlot('line-graph', lineGraphData);
+      }
+
+      // Initialize charts when the page loads
+      window.onload = function() {
+          initCharts();
+      };
+    </script>
+  </body>
 </html>

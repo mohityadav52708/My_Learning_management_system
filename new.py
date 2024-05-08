@@ -15,10 +15,6 @@ import matplotlib.pyplot as plt
 import io
 import uuid
 import numpy as np
-import smtplib
-import ssl
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 # import plotly.graph_objs as go
 import base64
 from flask import Flask, render_template
@@ -70,6 +66,7 @@ def add_book(sr, name, author, date, price, category, status="yes"):
     collection = database["book_list"]
     book_data = collection.find_one({"serial number": sr})
     
+    # Save profile picture to server
 
     if not book_data:
         collection.insert_one({"serial number": sr, "name": name, "author": author, "date": date,
@@ -220,40 +217,7 @@ def generate_bar_chart(book_names, book_prices):
 def contact():
     return render_template('contact.html')
 
-@app.route('/submit_contact', methods=['POST'])
-def submit_contact():
-    if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        message = request.form['message']
 
-        # Send an email to the user
-        msg = Message(subject='Thank you for contacting us!',
-                      sender=app.config['MAIL_USERNAME'],
-                      recipients=[email])
-        msg.body = f"Dear {name},\n\nThank you for contacting us. We have received your message:\n\n{message}\n\nWe will get back to you shortly.\n\nBest regards,\nThe Library Team"
-        
-        try:
-            mail.send(msg)
-        except Exception as e:
-            flash('Failed to send email. Please try again later.', 'danger')
-            return redirect(url_for('contact'))
-
-        # You can handle the message here, such as storing it in the database, etc.
-
-        flash('Your message has been received. We will get back to you soon. Thank you for reaching out.', 'success')
-        return redirect(url_for('contact'))
-    else:
-        flash('Invalid request method.', 'danger')
-        return redirect(url_for('contact')) 
-
-@app.route('/about', methods=['GET'])
-def about():
-    return render_template('about.html')
-
-
-# Route for adding a book
-# Route for adding a book
 # Route for adding a book
 @app.route('/add', methods=['GET', 'POST'])
 def add_book_route():
@@ -264,6 +228,10 @@ def add_book_route():
         date = request.form['date_name']
         price = request.form['price_name']
         category = request.form['category_name']
+        # profile_pic = request.files['profile_pic']
+
+        # Convert profile picture to binary data
+        # profile_pic_data = profile_pic.read()
         
         if add_book(sr, name, author, date, price, category):
             flash('Book added successfully', 'success')
@@ -273,15 +241,6 @@ def add_book_route():
     
     else:
         return render_template('add_book.html')
-
-       
-# Function to add book data to database
-def add_book_to_database(sr, name, author, date, price, category):
-    # For MongoDB, you can use PyMongo:
-    collection.insert_one({'sr': sr, 'name': name, 'author': author, 'date': date, 'price': price, 'category': category})
-    # return True if book is successfully added, else return False
-    pass
-
 
 # Route for deleting a book
 @app.route('/delete', methods=['GET', 'POST'])
@@ -297,24 +256,14 @@ def delete_book_route():
         return render_template('delete_book.html')
 
 # Route for viewing all books
-# Route for viewing all books
-def get_books():
-    # Fetch books from the database, include required fields, and sort them based on serial number
-    books = collection.find({}, {"_id": 0, "filename": 1, "serial number": 1, "name": 1, "author": 1, "date": 1, "price": 1, "category": 1, "available": 1}).sort("serial number", 1)
-    return list(books)
-
-
-
-
 @app.route('/view', methods=['GET'])
 def view_book():
     # Fetch the list of books from the database
     collection = database["book_list"]
-    books = get_books()
     books = collection.find({}, {"_id": 0})  # Exclude the _id field
     return render_template('view_book.html', books=books)
 
-# Route for registering a new user contact
+# Route for registering a new user
 @app.route('/signup', methods=['POST'])
 def signup():
     email = request.form['email']
@@ -430,35 +379,6 @@ def forgot_password():
             return redirect(url_for('forgot_password'))
     else:
         return render_template('forgot_password.html')
-
-
-def generate_token():
-    return str(uuid.uuid4())
-
-def send_otp(email, otp):
-    port = 587  # SMTP port
-    smtp_server = "smtp.gmail.com"
-    sender_email = app.config['MAIL_USERNAME']
-    password = app.config['MAIL_PASSWORD']
-
-    message = MIMEMultipart()
-    message["From"] = sender_email
-    message["To"] = email
-    message["Subject"] = "OTP for Password Reset"
-
-    body = f"Your OTP for password reset is: {otp}"
-    message.attach(MIMEText(body, "plain"))
-
-    context = ssl.create_default_context()
-    try:
-        with smtplib.SMTP(smtp_server, port) as server:
-            server.starttls(context=context)
-            server.login(sender_email, password)
-            server.sendmail(sender_email, email, message.as_string())
-            print("OTP sent successfully")
-    except Exception as e:
-        print("Error sending OTP:", e)
-        
 
 
 if __name__ == '__main__':

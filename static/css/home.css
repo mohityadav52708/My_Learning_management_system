@@ -1,64 +1,309 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 h1 {
-    text-align: center;
-    color: #333;
+  text-align: center;
+  color: #333;
 }
 .button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    text-align: center;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 .button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 form {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 input[type="text"],
 button {
-    width: calc(100% - 120px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+  width: calc(100% - 120px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 button {
-    width: 120px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+  width: 120px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 button:hover {
-    background-color: #218838;
+  background-color: #218838;
 }
 
 /* Responsive styles */
 @media screen and (max-width: 600px) {
-    .container {
-        width: 90%;
-        margin: 20px auto;
-    }
+  .container {
+    width: 90%;
+    margin: 20px auto;
+  }
 }
+#chart {
+  width: 30%;
+  height: auto;
+}
+
+.chartwrapper {
+  /* margin-left: 200px; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
+}
+.chartwrapper .mini-chart-wrapper {
+  /* margin-left: 200px; */
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.chartwrapper #bar-chart {
+  width: 40%;
+}
+.finalwrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Adjusted to align items to the start */
+  flex-direction: column;
+}
+.add_view_container {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#bar-chart {
+  margin-top: 30px;
+  width: 30%;
+  margin-left: 30px;
+}
+#pie-chart {
+  margin-left: 30px;
+  margin-top: 30px;
+  width: 30%;
+}
+#line-graph {
+  margin-top: 30px;
+  width: 30%;
+}
+/* Media query for smaller screens */
+
+#navbar{
+  width: 100%;
+  background-color: #000518;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#navbar ul li a{
+  font-size: 20px;
+}
+.homescreen_background{
+  width: 100%;
+  height: 600px;
+  background-image: url('https://static.vecteezy.com/system/resources/previews/022/189/536/large_2x/robot-exploring-new-bit-of-information-and-reading-book-concept-of-machine-learning-free-photo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  background-position: center;
+  display: flex;
+}
+.homescreen_background .cover_of_small_screen{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.homescreen_background .cover_of_small_screen .left_of_homescreen{
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.homescreen_background .cover_of_small_screen .right_of_homescreen{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#heading_of_homescreen {
+  font-size: 48px;
+  padding: 10px 20px; /* Adjust padding as needed */
+  display: inline-block; /* Ensures the background covers only the text */
+  text-shadow: 
+    -1px -1px 0 #fff,  
+    1px -1px 0 #fff,
+    -1px  1px 0 #fff,
+    1px  1px 0 #fff; /* Text shadow for white border */
+  /* background: linear-gradient(to right, #000, #000); Black background gradient */
+  background: black;
+  background-clip: text; 
+  -webkit-background-clip: text; /* For Safari */
+  color: transparent; /* Hide original text color */
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  border-right: 2px solid #fff; /* White border for typewriter cursor */
+  animation: typing 3.5s steps(40, end),blink-caret .75s  infinite;
+}
+#navbar ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 100%; */
+  list-style: none;
+  text-decoration: none;
+}
+#navbar ul li a{
+  list-style-type: none;
+  text-decoration: none;
+  color: whitesmoke;
+  margin: 40px;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+
+
+@keyframes fadeInDown {
+  0% {
+      opacity: 0;
+      transform: translateY(-50px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.homescreen_background h1{
+  color: white;
+}
+@media only screen and (max-width: 768px) {
+  
+}
+@media screen and (max-width: 768px) {
+  .homescreen_background {
+      height: 400px; /* Adjust the height for smaller screens */
+  }
+  #heading_of_homescreen{
+    font-size: 18px;
+  }
+  #navbar ul li a {
+    margin: 25px;
+    font-size: 13px;
+  }
+  .homescreen_background .cover_of_small_screen .right_of_homescreen{
+    width: 100%;
+  }
+  #navbar ul li a {
+    list-style-type: none;
+    text-decoration: none;
+    color: whitesmoke;
+    margin: 12px;
+}
+#sidebar {
+  width: 100%; /* Make the sidebar full width */
+  height: auto; /* Allow sidebar height to adjust based on content */
+  position: static; /* Remove fixed positioning */
+}
+#content {
+  margin-left: 0; /* Reset margin for content */
+}
+.finalwrapper {
+  flex-direction: column; /* Stack sidebar and content vertically */
+}
+.chartwrapper {
+  width: 100%; /* Make chart wrapper full width */
+  margin-top: 20px; /* Add margin between charts */
+  margin-left: 0;
+}
+.add_view_container {
+  width: 90%;
+}
+.chartwrapper #bar-chart{
+  width: 100%;
+}
+#bar-chart,
+#pie-chart,
+#line-graph {
+  width: 100%; /* Set charts to 100% width */
+  max-width: 600px; /* Adjust max-width as needed */
+  margin: 20 auto; /* Center charts horizontally */
+}
+img {
+  width: 100%; /* Set images to 100% width */
+  height: auto; /* Maintain aspect ratio */
+}
+}
+
+@media screen and (max-width: 480px) {
+  .homescreen_background {
+      height: 300px; /* Adjust the height for even smaller screens */
+  }
+   
+}
+

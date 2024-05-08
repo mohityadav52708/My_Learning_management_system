@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="../static/css/contact.css" />
+</head>
+<body>
+  <diV class="main-container">
+
+  <!-- Navbar Content -->
+  <nav id="navbar">
+      <ul>
+          <li><a href="/home" onclick="loadContent('home')">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+  </nav>
+      <div class="container">
+        <header>
+            <img src="{{ url_for('static', filename='images/library.jpg') }}" alt="Library Image">
+            <h1>Contact Us</h1>
+        </header>
+        <section>
+            <p>Have a question or feedback? Fill out the form below to get in touch with us.</p>
+            <form action="/submit_contact" method="post">
+                <label for="name">Your Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Your Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br>
+               <center> <button type="submit">Submit</button></center>
+            </form>
+        </section>
+    </div>
+  </diV>
+    <script>
+      const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+    </script>
+  </script>
+
+</body>
+</html>

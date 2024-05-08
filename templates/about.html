@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="../static/css/about.css" />
+    <style>
+        /* Additional CSS for About Page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .container h2 {
+            color: #333;
+            margin-bottom: 20px;
+            animation: slideInUp 1s ease-in-out;
+        }
+
+        .container p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            animation: slideInLeft 1s ease-in-out;
+        }
+
+        @keyframes slideInUp {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/library.jpg') }}" alt="Library Image">
+        <h2>About Our Library Management System</h2>
+        <p>Welcome to our vibrant library management system! We're passionate about providing an exceptional library experience. Here's what sets us apart:</p>
+        <ul>
+            <li>Efficient book management</li>
+            <li>User-friendly interface</li>
+            <li>Seamless integration with existing library systems</li>
+            <li>Robust search and sorting capabilities</li>
+            <li>Customizable settings and preferences</li>
+        </ul>
+    </div>
+
+    <!-- JavaScript for Animation -->
+    <script>
+        // No JavaScript needed for animations in this example
+    </script>
+</body>
+</html>
