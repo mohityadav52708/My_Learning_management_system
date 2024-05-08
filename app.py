@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from pymongo import MongoClient
 import datetime
-# import bcrypt
+import bcrypt
 import os
 import smtplib
 import ssl
@@ -461,5 +461,3 @@ def send_otp(email, otp):
         
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
