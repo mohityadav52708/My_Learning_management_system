@@ -28,6 +28,26 @@
           </div>
         </div>
       </div>
+      <!-- trending_books.html -->
+      <div class="book_container">
+        <h2>Trending Books</h2>
+        <div class="books-container">
+            {% for book in trending_books %}
+            <div class="book-card">
+                <div class="image" style="background-image: url('{{ book.image }}');"></div>
+                <div class="book-info">
+                    <h3>{{ book.title }}</h3>
+                    <p class="author">Author: {{ book.author }}</p>
+                    <p class="review">Review: {{ book.review }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    </div>
+
+
       <div class="container" id="content">
         <div class="add_view_container">
           <h1>Library Management System</h1>
@@ -95,6 +115,7 @@
       window.onload = function() {
           initCharts();
       };
+      
     </script>
   </body>
 </html>

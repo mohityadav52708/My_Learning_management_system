@@ -119,7 +119,55 @@ def register():
 @app.route('/home', methods=['GET', 'POST'])
 def home():
     collection = database["book_list"]
-    
+    trending_books = [
+    {
+        "title": "Mohit",
+        "author": "Author 1",
+        "review": "A captivating story.",
+        "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg"
+    },
+    {
+        "title": "Rohit",
+        "author": "Author 2",
+        "review": "An inspiring read.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/KellsFol032vChristEnthroned.jpg/1200px-KellsFol032vChristEnthroned.jpg"
+    },
+    {
+        "title": "Ganesh",
+        "author": "Author 3",
+        "review": "A thrilling adventure.",
+        "image": "https://static.vecteezy.com/system/resources/previews/022/189/536/large_2x/robot-exploring-new-bit-of-information-and-reading-book-concept-of-machine-learning-free-photo.jpg"
+    },{
+        "title": "Sourav",
+        "author": "Author 1",
+        "review": "A captivating story.",
+        "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg"
+    },
+    {
+        "title": "Anant",
+        "author": "Author 2",
+        "review": "An inspiring read.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/KellsFol032vChristEnthroned.jpg/1200px-KellsFol032vChristEnthroned.jpg"
+    },
+    {
+        "title": "Keshav",
+        "author": "Author 3",
+        "review": "A thrilling adventure.",
+        "image": "https://static.vecteezy.com/system/resources/previews/022/189/536/large_2x/robot-exploring-new-bit-of-information-and-reading-book-concept-of-machine-learning-free-photo.jpg"
+    },
+    {
+        "title": "Madhav",
+        "author": "Author 2",
+        "review": "An inspiring read.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/KellsFol032vChristEnthroned.jpg/1200px-KellsFol032vChristEnthroned.jpg"
+    },
+    {
+        "title": "RadhaKrishna",
+        "author": "Author 3",
+        "review": "A thrilling adventure.",
+        "image": "https://static.vecteezy.com/system/resources/previews/022/189/536/large_2x/robot-exploring-new-bit-of-information-and-reading-book-concept-of-machine-learning-free-photo.jpg"
+    },
+]
     # Fetch data from MongoDB
     data = collection.find()
 
@@ -187,7 +235,7 @@ def home():
     pie_chart_json = pie_fig.to_json()
     line_chart_json = line_fig.to_json()
 
-    return render_template('home.html', bar_chart=bar_chart_json, pie_chart=pie_chart_json, line_chart=line_chart_json)
+    return render_template('home.html', bar_chart=bar_chart_json, pie_chart=pie_chart_json, line_chart=line_chart_json,trending_books=trending_books)
 
 @app.route('/generate-graph', methods=['POST'])
 def generate_graph():
@@ -461,3 +509,5 @@ def send_otp(email, otp):
         
 
 
+if __name__ == '__main__':
+    app.run(debug=True)

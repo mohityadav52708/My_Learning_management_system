@@ -10,3 +10,202 @@ pymongo
 bcrypt
 plotly
 
+
+.book_container {
+  max-width:90%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.book_container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.book_container h2 {
+  color: #333;
+  margin-bottom: 20px;
+  animation: slideInUp 1s ease-in-out;
+}
+
+.book_container p {
+  color: #666;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  animation: slideInLeft 1s ease-in-out;
+}
+
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.book-card {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  height: 380px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+}
+
+.book-card .image {
+  width: 100%;
+  height: 270px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+}
+
+.book-card .book-info {
+  padding-top: 10px;
+  text-align: left;
+}
+
+.book-card h3 {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.book-card p {
+  margin: 5px 0;
+  color: #666;
+}
+
+@keyframes slideInUp {
+  0% {
+      transform: translateY(100px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+      transform: translateX(-50px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+
+
+@keyframes fadeInDown {
+  0% {
+      opacity: 0;
+      transform: translateY(-50px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.homescreen_background h1{
+  color: white;
+}
+@media only screen and (max-width: 768px) {
+  
+}
+@media screen and (max-width: 768px) {
+  .homescreen_background {
+      height: 400px; /* Adjust the height for smaller screens */
+  }
+  #heading_of_homescreen{
+    font-size: 18px;
+  }
+  #navbar ul li a {
+    margin: 25px;
+    font-size: 13px;
+  }
+  .homescreen_background .cover_of_small_screen .right_of_homescreen{
+    width: 100%;
+  }
+  #navbar ul li a {
+    list-style-type: none;
+    text-decoration: none;
+    color: whitesmoke;
+    margin: 12px;
+}
+}
+
+@media screen and (max-width: 480px) {
+  .homescreen_background {
+      height: 300px; /* Adjust the height for even smaller screens */
+  }
+   
+}
+/* styles.css */
+
+
+/* Media Query for Responsiveness */
+@media screen and (max-width: 600px) {
+  .book-card {
+      width: calc(100% - 20px);
+  }
+}
