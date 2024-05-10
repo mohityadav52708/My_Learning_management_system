@@ -509,5 +509,3 @@ def send_otp(email, otp):
         
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
