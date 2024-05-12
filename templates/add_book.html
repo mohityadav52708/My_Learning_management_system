@@ -1,41 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Book</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-  <link rel="stylesheet" href="../static/css/add_book.css">
-</head>
-<body>
-  <div class="container">
-    <h1>Add Book</h1>
-    {% if error %}
-    <div class="error-message">{{ error }}</div>
-    {% endif %}
-    <form action="{{ url_for('add_book_route') }}" method="POST">
-      <label for="book_id">Book ID:</label>
-      <input type="text" id="book_id" name="book_id" required><br><br>
-      <label for="book_name">Book Name:</label>
-      <input type="text" id="book_name" name="book_name" required><br><br>
-      <label for="author_name">Author Name:</label>
-      <input type="text" id="author_name" name="author_name" required><br><br>
-      <label for="date_name">Date (DD/MM/YYYY):</label>
-      <input type="text" id="date_name" name="date_name" required><br><br>
-      <label for="price_name">Price:</label>
-      <input type="text" id="price_name" name="price_name" required><br><br>
-      <label for="category_name">Category:</label>
-      <select id="category_name" name="category_name" required>
-        <option value="" disabled selected>Select Category</option>
-        <option value="Fiction">Fiction</option>
-        <option value="Non-fiction">Non-fiction</option>
-        <option value="Science Fiction">Science Fiction</option>
-        <option value="Science Fiction">Motivational</option>
-        <option value="Science Fiction">Story</option>
-        <!-- Add more options as needed -->
-      </select><br><br>
-      <button type="submit">Add Book</button>
-    </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Book</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/home.css') }}"
+    />
+    <link rel="stylesheet" href="../static/css/add_book.css" />
+  </head>
+  <body>
+    <div class="main_container">
+      <nav id="navbar">
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('add_book_route') }}">Add Book</a></li>
+          <li><a href="{{ url_for('view_book') }}">View Book</a></li>
+          <li><a href="{{ url_for('about') }}">Blog</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+      </nav>
+      <div class="cover">
+      <div class="book_image">
+        <img src="https://www.skoolbeep.com/blog/wp-content/uploads/2020/12/HOW-DO-YOU-DESIGN-A-LIBRARY-MANAGEMENT-SYSTEM-min.png">
+      </div>
+      <div class="container">
+        <h1>Add Book</h1>
+        {% if error %}
+        <div class="error-message">{{ error }}</div>
+        {% endif %}
+        <form action="{{ url_for('add_book_route') }}" method="POST">
+          <label for="book_id">Book ID:</label>
+          <input type="text" id="book_id" name="book_id" required /><br />
+          <label for="book_name">Book Name:</label>
+          <input
+            type="text"
+            id="book_name"
+            name="book_name"
+            required
+          /><br />
+          <label for="author_name">Author Name:</label>
+          <input
+            type="text"
+            id="author_name"
+            name="author_name"
+            required
+          /><br />
+          <label for="date_name">Date (DD/MM/YYYY):</label>
+          <input
+            type="text"
+            id="date_name"
+            name="date_name"
+            required
+          /><br />
+          <label for="price_name">Price:</label>
+          <input
+            type="text"
+            id="price_name"
+            name="price_name"
+            required
+          /><br />
+          <label for="category_name">Category:</label>
+          <select id="category_name" name="category_name" required>
+            <option value="" disabled selected>Select Category</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Non-fiction">Non-fiction</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Science Fiction">Motivational</option>
+            <option value="Science Fiction">Story</option>
+            <!-- Add more options as needed --></select
+          ><br />
+          <button type="submit">Add Book</button>
+        </form>
+      </div>
+    </div>
   </div>
-</body>
+  
+  </body>
 </html>

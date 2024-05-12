@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #030210;
   margin: 0;
   padding: 0;
 }
@@ -70,7 +70,7 @@ button:hover {
 .chartwrapper .mini-chart-wrapper {
   /* margin-left: 200px; */
   width: 100%;
-  height: 600px;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -78,7 +78,8 @@ button:hover {
 }
 
 .chartwrapper #bar-chart {
-  width: 40%;
+  width: 31%;
+  height:auto;
 }
 .finalwrapper {
   width: 100%;
@@ -102,17 +103,21 @@ button:hover {
 }
 #bar-chart {
   margin-top: 30px;
-  width: 30%;
-  margin-left: 30px;
+  width: 31%;
+  height:auto;
+  margin-left: 15px;
 }
 #pie-chart {
-  margin-left: 30px;
+  margin-left: 15px;
   margin-top: 30px;
-  width: 30%;
+  width: 31%;
+  height:auto;
 }
 #line-graph {
   margin-top: 30px;
-  width: 30%;
+  width: 31%;
+  height:auto;
+  margin-left: 15px;
 }
 /* Media query for smaller screens */
 
@@ -183,7 +188,7 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* width: 100%; */
+  width: 100%;
   list-style: none;
   text-decoration: none;
 }
@@ -248,7 +253,7 @@ button:hover {
   max-width:90%;
   margin: 20px auto;
   padding: 20px;
-  background-color: #fff;
+  background-color: #000000;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -264,13 +269,13 @@ button:hover {
 }
 
 .book_container h2 {
-  color: #333;
+  color: #fffdfd;
   margin-bottom: 20px;
   animation: slideInUp 1s ease-in-out;
 }
 
 .book_container p {
-  color: #666;
+  color: #fffafa;
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 30px;
@@ -285,9 +290,9 @@ button:hover {
 }
 
 .book-card {
-  background-color: #f9f9f9;
+  background-color: #000000;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgb(255, 255, 255);
   width: 250px;
   height: 380px;
   padding: 20px;
@@ -316,14 +321,56 @@ button:hover {
 
 .book-card h3 {
   margin-bottom: 5px;
-  color: #333;
+  color: #ffffff;
 }
 
 .book-card p {
   margin: 5px 0;
-  color: #666;
+  color: #ffefef;
+}
+header {
+  background-color: rgba(0, 0, 0, 0.295);
+  color: rgb(255, 252, 252);
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+  margin-top: 20px;
 }
 
+header h1 {
+  margin: 0;
+  color: whitesmoke;
+}
+
+.steps-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.step {
+  text-align: center;
+  margin: 20px;
+  color:white;
+}
+
+.step img {
+  width: 450px;
+  height: 250px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+footer {
+  background-color: #f4f4f4;
+  padding: 10px;
+  text-align: center;
+}
+#content #chartsheading{
+  color: whitesmoke;
+  text-align: center;
+}
 @keyframes slideInUp {
   0% {
       transform: translateY(100px);
@@ -413,8 +460,8 @@ button:hover {
     font-size: 18px;
   }
   #navbar ul li a {
-    margin: 25px;
-    font-size: 13px;
+    margin: 10px;
+    font-size: 10px;
   }
   .homescreen_background .cover_of_small_screen .right_of_homescreen{
     width: 100%;
@@ -423,7 +470,7 @@ button:hover {
     list-style-type: none;
     text-decoration: none;
     color: whitesmoke;
-    margin: 12px;
+    margin: 10px;
 }
 }
 
@@ -449,9 +496,15 @@ button:hover {
   #heading_of_homescreen{
     font-size: 18px;
   }
+  #navbar ul{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: -30px;
+  }
   #navbar ul li a {
-    margin: 25px;
-    font-size: 13px;
+    margin: 0px;
+    font-size: 10px;
   }
   .homescreen_background .cover_of_small_screen .right_of_homescreen{
     width: 100%;
@@ -460,12 +513,11 @@ button:hover {
     list-style-type: none;
     text-decoration: none;
     color: whitesmoke;
-    margin: 12px;
+    margin: 10px;
 }
 #sidebar {
   width: 100%; /* Make the sidebar full width */
-  height: auto; /* Allow sidebar height to adjust based on content */
-  position: static; /* Remove fixed positioning */
+  height: auto;
 }
 #content {
   margin-left: 0; /* Reset margin for content */
@@ -495,6 +547,21 @@ button:hover {
 img {
   width: 100%; /* Set images to 100% width */
   height: auto; /* Maintain aspect ratio */
+}
+.step img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+.step {
+  text-align: center;
+  margin: 15px;
+  color: white;
+  margin-bottom: 0px;
+}
+.steps-container{
+  padding: 0px;
 }
 }
 

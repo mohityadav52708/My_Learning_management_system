@@ -1,28 +1,56 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #030210;
     margin: 0;
     padding: 0;
 }
+.main_container {
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    flex-direction: column;
+}
+.main_container .book_image{
+    width: 35%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    background-color: white;
+    margin-right: 20px;
+    border-top-right-radius: 200px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.main_container .book_image img{
+    width: 100%;
+}
 .container {
-    max-width: 600px;
-    margin: 50px auto;
+    width: 33%;
+    margin: 20px 20px;
     padding: 20px;
-    background-color: #fff;
+    background-image: radial-gradient(at top right, #00E1FF24 0%, #01141D 50%);
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(219, 218, 218, 0.909);
 }
 h1 {
     text-align: center;
-    color: #333;
+    color: aqua;
 }
 form {
+    width: 100%;
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
 }
 label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: aqua;
+    text-align: left;
 }
 input[type="text"],
 button {
@@ -32,6 +60,11 @@ button {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+    background:transparent;
+    color: white;
+    /* border: none;
+    border-bottom: 2px solid white; */
+    /* outline: none; */
 }
 button {
     width: 100%;
@@ -43,11 +76,44 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+.cover{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
 
+}
+/* Style for the select dropdown */
+input[type="text"],select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    appearance: none; /* Hide the default arrow */
+    background-color: transparent;
+    font-size: 16px;
+    color: aqua;
+  }
+  
+  /* Style for the options */
+  option {
+    background-color: #fff;
+    color: #000000;
+  }
+  
 /* Responsive styles */
 @media screen and (max-width: 600px) {
     .container {
-        width: 90%;
+        width: 80%;
         margin: 20px auto;
     }
+    .cover{
+        flex-direction: column;
+    }
+    .book_image  img{
+        display: none;
+    }
+
 }

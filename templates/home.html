@@ -15,12 +15,15 @@
     <div class="finalwrapper">
       <nav id="navbar">
         <ul>
-          <li><a href="/home" onclick="loadContent('home')">Home</a></li>
-          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('add_book_route') }}">Add Book</a></li>
+          <li><a href="{{ url_for('view_book') }}">View Book</a></li>
           <li><a href="{{ url_for('about') }}">Blog</a></li>
           <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          <li><a href="/logout">Logout</a></li>
         </ul>
       </nav>
+      
       <div class="homescreen_background">
         <div class="cover_of_small_screen">
           <div class="right_of_homescreen">
@@ -49,33 +52,49 @@
 
 
       <div class="container" id="content">
-        <div class="add_view_container">
-          <h1>Library Management System</h1>
-          <!-- Add your home page content here -->
-          <a href="{{ url_for('add_book_route') }}" class="button">Add Book</a>
-          <a href="{{ url_for('view_book') }}" class="button">View Book</a>
-          <form action="{{ url_for('delete_book_route') }}" method="post">
-            <label for="book_id">Enter Book ID to Delete:</label>
-            <input type="text" id="book_id" name="book_id" required />
-            <button type="submit">Delete Book</button>
-          </form>
-        </div>
+        <h1 id="chartsheading">Charts according to Selling Price and trend</h1>
         <div class="chartwrapper">
           <div class="mini-chart-wrapper">
             <div id="bar-chart"></div>
-            <br /><br />
 
             <!-- Pie Chart -->
             <div id="pie-chart"></div>
 
             <!-- Line Graph -->
             <div id="line-graph"></div>
+            
           </div>
         </div>
       </div>
 
       <!-- Bar Chart -->
+      
     </div>
+  
+    <header>
+      <h1>How It Works</h1>
+  </header>
+  <section class="steps-container">
+      <div class="step">
+          <img src="https://img.freepik.com/premium-photo/anime-girl-sitting-desk-with-computer-mug-generative-ai_1035439-216.jpg" alt="Step 1">
+          <p>Step 1: Register for an account</p>
+      </div>
+      <div class="step">
+          <img src="https://images6.alphacoders.com/104/1043516.jpg" alt="Step 2">
+          <p>Step 2: Browse available books</p>
+      </div>
+      <div class="step">
+          <img src="https://img.freepik.com/premium-vector/library-flat-color-background-with-people-reading-books-searching-literature-bookshe_392500-226.jpg?size=626&ext=jpg&ga=GA1.1.34264412.1708560000&semt=ais" alt="Step 3">
+          <p>Step 3: Borrow or reserve books</p>
+      </div>
+      <div class="step">
+          <img src="https://img.freepik.com/premium-vector/vector-image-bookstore-indoor-view-book-shop-with-buyers-sign-store-bookshop_353502-699.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1708387200&semt=ais" alt="Step 4">
+          <p>Step 4: Return books on time</p>
+      </div>
+  </section>
+  <footer>
+      <p>&copy; 2024 Library Management System</p>
+  </footer>
     <script>
       function loadContent(page) {
           var xhttp = new XMLHttpRequest();

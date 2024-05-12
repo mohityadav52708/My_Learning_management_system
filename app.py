@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
+from flask import Flask, render_template, request, redirect, url_for, flash,session ,jsonify
 from pymongo import MongoClient
 import datetime
 import bcrypt
@@ -317,7 +317,7 @@ def add_book_route():
             flash('Book added successfully', 'success')
         else:
             flash('Failed to add book. Please try again', 'danger')
-        return redirect(url_for('home'))
+        return redirect(url_for('view_book'))
     
     else:
         return render_template('add_book.html')
@@ -340,7 +340,7 @@ def delete_book_route():
             flash('Book deleted successfully', 'success')
         else:
             flash('Failed to delete book. Book does not exist', 'danger')
-        return redirect(url_for('home'))
+        return redirect(url_for('view_book'))
     else:
         return render_template('delete_book.html')
 
@@ -507,5 +507,14 @@ def send_otp(email, otp):
     except Exception as e:
         print("Error sending OTP:", e)
         
+
+@app.route('/logout')
+def logout():
+    # Clear the user session
+    session.clear()
+    flash('You have been logged out successfully.', 'success')
+    # Redirect to the login page
+    return redirect(url_for('login'))
+
 
 

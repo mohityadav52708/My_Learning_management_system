@@ -1,3 +1,4 @@
+/* styles.css */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -7,43 +8,80 @@ body {
 
 .container {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 0 auto;
     padding: 20px;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    text-align: center;
     color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"],
+#searchButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover,
+#searchButton:hover {
+    background-color: #0056b3;
+}
+
+.table-container {
+    overflow-x: auto; /* Make the container horizontally scrollable */
+    max-width: calc(100% - 40px); /* Adjust max-width as needed */
+    margin: 0 auto; /* Center the container */
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
 }
 
-th,
-td {
+th, td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
-
-th {
-    background-color: #f2f2f2;
+form {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
 }
-
-/* Responsive styles */
+/* Responsive Styles */
 @media screen and (max-width: 600px) {
     .container {
-        width: 90%; /* Adjusted to make container responsive */
-        margin: 20px auto; /* Adjusted to center container */
+        padding: 10px;
     }
-
-    table {
-        font-size: 12px; /* Adjusted font size for smaller screens */
+    form {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
     }
 }

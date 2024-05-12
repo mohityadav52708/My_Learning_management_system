@@ -9,37 +9,43 @@
 </head>
 <body>
     <div class="container">
+        <form action="{{ url_for('delete_book_route') }}" method="post">
+            <label for="book_id">Enter Book ID to Delete:</label>
+            <input type="text" id="book_id" name="book_id" required />
+            <button type="submit">Delete Book</button>
+        </form>
         <h1>View Book</h1>
         <!-- Add search form -->
         <form id="searchForm">
             <input type="text" id="searchInput" placeholder="Search by name...">
             <button type="button" id="searchButton">Search</button>
         </form>
-        <table id="bookTable">
-            <tr>
-                <th>Serial Number</th>
-                <th>Name</th>
-                <th>Author</th>
-                <th>Date</th>
-                <th>Price</th>
-                <th>Category</th>
-                <th>Availability</th>
-            </tr>
-            {% for book in books %}
-            <tr>
-                <td>{{ book['serial number'] }}</td>
-                <td><b>{{ book['name'] }}</b></td>
-                <td>{{ book['author'] }}</td> 
-                <td>{{ book['date'] }}</td> 
-                <td>{{ book['price'] }}</td> 
-                <td>{{ book['category'] }}</td> 
-                <td>{{ book['available'] }}</td>
-                
-                
-            </tr>
-            {% endfor %}
-        </table>
+        <div class="table-container"> <!-- Add this wrapper -->
+            <table id="bookTable">
+                <tr>
+                    <th>Serial Number</th>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Date</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Availability</th>
+                </tr>
+                {% for book in books %}
+                <tr>
+                    <td>{{ book['serial number'] }}</td>
+                    <td><b>{{ book['name'] }}</b></td>
+                    <td>{{ book['author'] }}</td> 
+                    <td>{{ book['date'] }}</td> 
+                    <td>{{ book['price'] }}</td> 
+                    <td>{{ book['category'] }}</td> 
+                    <td>{{ book['available'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div> <!-- Close the wrapper -->
     </div>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('searchInput');
