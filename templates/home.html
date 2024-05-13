@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="../static/css/home.css" />
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
   </head>
   <body>
     <div class="finalwrapper">
@@ -18,7 +19,7 @@
           <li><a href="{{ url_for('home') }}">Home</a></li>
           <li><a href="{{ url_for('add_book_route') }}">Add Book</a></li>
           <li><a href="{{ url_for('view_book') }}">View Book</a></li>
-          <li><a href="{{ url_for('about') }}">Blog</a></li>
+          <li><a href="{{ url_for('blog') }}">Blog</a></li>
           <li><a href="{{ url_for('contact') }}">Contact</a></li>
           <li><a href="/logout">Logout</a></li>
         </ul>
@@ -92,8 +93,19 @@
           <p>Step 4: Return books on time</p>
       </div>
   </section>
-  <footer>
+  <footer class="footer">
       <p>&copy; 2024 Library Management System</p>
+        <div class="footer-links">
+            <a href="#">Home</a>
+            <a href="#">Books</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+        
+      <!-- Add Font Awesome CDN for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </footer>
     <script>
       function loadContent(page) {

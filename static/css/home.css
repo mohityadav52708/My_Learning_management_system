@@ -198,6 +198,48 @@ button:hover {
   color: whitesmoke;
   margin: 40px;
 }
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: small;
+}
+
+.footer a:hover {
+  color: #ccc;
+}
+
+.footer .social-icons {
+  margin-top: 10px;
+}
+
+.footer .social-icons a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  line-height: 30px;
+  color: #333;
+  margin: 0 5px;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+  .footer .social-icons a {
+      font-size: 14px;
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+  }
+}
 
 @keyframes typing {
   from {

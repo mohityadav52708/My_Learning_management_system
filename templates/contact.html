@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
+    <link rel="stylesheet" href="../static/css/home.css" />
     <link rel="stylesheet" href="../static/css/contact.css" />
 </head>
 <body>
@@ -11,11 +12,14 @@
 
   <!-- Navbar Content -->
   <nav id="navbar">
-      <ul>
-          <li><a href="/home" onclick="loadContent('home')">Home</a></li>
-          <li><a href="{{ url_for('about') }}">About</a></li>
-          <li><a href="{{ url_for('contact') }}">Contact</a></li>
-      </ul>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('add_book_route') }}">Add Book</a></li>
+      <li><a href="{{ url_for('view_book') }}">View Book</a></li>
+      <li><a href="{{ url_for('blog') }}">Blog</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
   </nav>
       <div class="container">
         <header>
@@ -36,6 +40,20 @@
         </section>
     </div>
   </diV>
+  <footer class="footer">
+    <p>&copy; 2024 Library Management System</p>
+      <div class="footer-links">
+          <a href="#">Home</a>
+          <a href="#">Books</a>
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+      </div>
+      
+    <!-- Add Font Awesome CDN for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</footer>
     <script>
       const sidebar = document.getElementById('sidebar');
         const sidebarToggle = document.getElementById('sidebar-toggle');

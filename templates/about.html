@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
+    <link rel="stylesheet" href="../static/css/home.css" />
     <link rel="stylesheet" href="../static/css/about.css" />
     <style>
         /* Additional CSS for About Page */
@@ -80,6 +81,16 @@
     </style>
 </head>
 <body>
+    <nav id="navbar">
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('add_book_route') }}">Add Book</a></li>
+          <li><a href="{{ url_for('view_book') }}">View Book</a></li>
+          <li><a href="{{ url_for('blog') }}">Blog</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+      </nav>
     <div class="container">
         <img src="{{ url_for('static', filename='images/library.jpg') }}" alt="Library Image">
         <h2>About Our Library Management System</h2>

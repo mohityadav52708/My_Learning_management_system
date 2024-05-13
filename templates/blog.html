@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Management System Review</title>
+    
+    <link rel="stylesheet" href="../static/css/home.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/blog.css') }}"
+    />
+  </head>
+  <body>
+    <nav id="navbar">
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('add_book_route') }}">Add Book</a></li>
+        <li><a href="{{ url_for('view_book') }}">View Book</a></li>
+        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+    <div class="book_container">
+      <h2>Trending Books</h2>
+      <div class="books-container">
+          {% for book in new_trending_books %}
+          <div class="book-card">
+              <div class="image" style="background-image: url('{{ book.image }}');"></div>
+              <div class="book-info">
+                  <h3>{{ book.title }}</h3>
+                  <p class="author">Author: {{ book.author }}</p>
+                  <p class="review">Review: {{ book.review }}</p>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+  </div>
+  <footer class="footer">
+    <p>&copy; 2024 Library Management System</p>
+      <div class="footer-links">
+          <a href="#">Home</a>
+          <a href="#">Books</a>
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+      </div>
+      
+    <!-- Add Font Awesome CDN for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</footer>
+  </body>
+</html>
