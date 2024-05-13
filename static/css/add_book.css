@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #030210;
+    background-color:white;
     margin: 0;
     padding: 0;
 }
@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center ;
-    background-color: white;
+    background-color: rgb(217, 217, 217);
     margin-right: 20px;
     border-top-right-radius: 200px;
     border-top-left-radius: 20px;
@@ -30,13 +30,13 @@ body {
     width: 33%;
     margin: 20px 20px;
     padding: 20px;
-    background-image: radial-gradient(at top right, #00E1FF24 0%, #01141D 50%);
+    /* background-image: radial-gradient(at top right, #00E1FF24 0%, #01141D 50%); */
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(219, 218, 218, 0.909);
 }
 h1 {
     text-align: center;
-    color: aqua;
+    color: rgb(0, 0, 0);
 }
 form {
     width: 100%;
@@ -49,7 +49,7 @@ form {
 label {
     display: block;
     margin-bottom: 5px;
-    color: aqua;
+    color: rgb(1, 1, 1);
     text-align: left;
 }
 input[type="text"],
@@ -61,7 +61,7 @@ button {
     border-radius: 5px;
     box-sizing: border-box;
     background:transparent;
-    color: white;
+    color: rgb(255, 255, 255);
     /* border: none;
     border-bottom: 2px solid white; */
     /* outline: none; */
@@ -94,7 +94,7 @@ input[type="text"],select {
     appearance: none; /* Hide the default arrow */
     background-color: transparent;
     font-size: 16px;
-    color: aqua;
+    color: rgb(0, 0, 0);
   }
   
   /* Style for the options */

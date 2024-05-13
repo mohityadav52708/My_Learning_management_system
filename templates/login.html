@@ -8,8 +8,12 @@
     <link rel="stylesheet" href="../static/css/login.css">
 </head>
 <body>
+    <h1>Library Management System</h1>
     <div class="main_container">
-        <h1>Library Management System</h1>
+        <div class="login_image">
+                      <img src="https://static.vecteezy.com/system/resources/previews/003/689/228/non_2x/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg" alt="Library Image">
+
+        </div>
     <div class="container">
         <h1>Login</h1>
         <form action="{{ url_for('login') }}" method="POST">
@@ -18,7 +22,6 @@
             <button type="submit">Login</button>
         </form>
         <p>Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
-
     </div>
     </div>
 </body>

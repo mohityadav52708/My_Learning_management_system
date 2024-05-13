@@ -120,80 +120,56 @@ def register():
 def home():
     collection = database["book_list"]
     trending_books =[
-  {
-    "title": "To Kill a Mockingbird",
-    "author": "Harper Lee",
-    "review": "American masterpiece",
-    "image": "https://images.penguinrandomhouse.com/cover/9781594489585"
-  },
-  {
-    "title": "1984",
-    "author": "George Orwell",
-    "review": "Dystopian classic",
-    "image": "https://m.media-amazon.com/images/I/61ZewDE3beL._AC_UF1000,1000_QL80_.jpg"
-  },
-  {
-    "title": "The Great Gatsby",
-    "author": "F. Scott Fitzgerald",
-    "review": "Jazz Age classic",
-    "image": "https://m.media-amazon.com/images/I/81QuEGw8VPL._AC_UF1000,1000_QL80_.jpg"
-  },
-  {
-    "title": "Pride and Prejudice",
-    "author": "Jane Austen",
-    "review": "Beloved romance",
-    "image": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p468777_b_v10_bo.jpg"
-  },
-  {
-    "title": "Harry Potter and the Philosopher's Stone",
-    "author": "J.K. Rowling",
-    "review": "Magical fantasy",
-    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1690325024i/58341275.jpg"
-  },
- 
     {
-        "title": "The Catcher in the Rye",
-        "author": "J.D. Salinger",
-        "review": "Classic coming-of-age",
-        "image": "https://m.media-amazon.com/images/I/7108sdEUEGL._AC_UF1000,1000_QL80_.jpg"
+        "title": "Mohit",
+        "author": "Author 1",
+        "review": "A captivating story.",
+        "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg"
     },
     {
-        "title": "The Lord of the Rings",
-        "author": "J.R.R. Tolkien",
-        "review": "Epic fantasy saga",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTstdDoeoEkUtfHS4nD-_vSRFm9NjudOgi2spXi63q93oL1gYNwR_TcFw4iXOqppA5XHN0&usqp=CAU"
+        "title": "Rohit",
+        "author": "Author 2",
+        "review": "An inspiring read.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/KellsFol032vChristEnthroned.jpg/1200px-KellsFol032vChristEnthroned.jpg"
     },
     {
-        "title": "The Hobbit",
-        "author": "J.R.R. Tolkien",
-        "review": "Charming prelude",
-        "image": "https://m.media-amazon.com/images/I/717TGeIkVML._AC_UF1000,1000_QL80_.jpg"
+        "title": "Ganesh",
+        "author": "Author 3",
+        "review": "A thrilling adventure.",
+        "image": "https://static.vecteezy.com/system/resources/previews/022/189/536/large_2x/robot-exploring-new-bit-of-information-and-reading-book-concept-of-machine-learning-free-photo.jpg"
     },
     {
-        "title": "Moby-Dick",
-        "author": "Herman Melville",
-        "review": "Epic tale of obsession",
-        "image": "https://m.media-amazon.com/images/M/MV5BYzg0MjFmMjAtMmNlMC00ZmEzLWE0ZDQtYTFhZjAyNzIxZWU3XkEyXkFqcGdeQXVyMjQwMjk0NjI@._V1_.jpg"
+        "title": "Sourav",
+        "author": "Author 1",
+        "review": "A captivating story.",
+        "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg"
     },
     {
-        "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
-        "author": "C.S. Lewis",
-        "review": "Magical journey",
-        "image": "https://m.media-amazon.com/images/I/81NEPVv9QVL._AC_UF1000,1000_QL80_.jpg"
+        "title": "Anant",
+        "author": "Author 2",
+        "review": "An inspiring read.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/KellsFol032vChristEnthroned.jpg/1200px-KellsFol032vChristEnthroned.jpg"
     },
     {
-    "title": "The Hitchhiker's Guide to the Galaxy",
-    "author": "Douglas Adams",
-    "review": "Witty and imaginative",
-    "image": "https://images.justwatch.com/poster/267988984/s718/the-hitchhikers-guide-to-the-galaxy.jpg"
-  },
-  {
-    "title": "The Alchemist",
-    "author": "Paulo Coelho",
-    "review": "Inspirational journey",
-    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg"
-  }
+        "title": "Keshav",
+        "author": "Author 3",
+        "review": "A thrilling adventure.",
+        "image": "https://static.vecteezy.com/system/resources/previews/022/189/536/large_2x/robot-exploring-new-bit-of-information-and-reading-book-concept-of-machine-learning-free-photo.jpg"
+    },
+    {
+        "title": "Madhav",
+        "author": "Author 2",
+        "review": "An inspiring read.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/KellsFol032vChristEnthroned.jpg/1200px-KellsFol032vChristEnthroned.jpg"
+    },
+    {
+        "title": "RadhaKrishna",
+        "author": "Author 3",
+        "review": "A thrilling adventure.",
+        "image": "https://wisdombooksofindia.com/wp-content/uploads/2019/05/Krishna-Life-Sketch-of-Lord-Sri-Krishna--490x800.jpeg"
+    }
 ]
+
 
     # Fetch data from MongoDB
     data = collection.find()
@@ -609,5 +585,4 @@ def logout():
     flash('You have been logged out successfully.', 'success')
     # Redirect to the login page
     return redirect(url_for('login'))
-
 
