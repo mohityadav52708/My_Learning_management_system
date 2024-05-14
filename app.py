@@ -35,10 +35,11 @@ app.secret_key = 'your_secret_key'
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'sanjivinihealthcarecenter@gmail.com'  # Use the provided email
-app.config['MAIL_PASSWORD'] = 'doszhhhwkuxdojsr'                    # Use the provided email password
-app.config['MAIL_DEFAULT_SENDER'] = 'sanjivinihealthcarecenter@gmail.com'  # Use the provided email
+app.config['MAIL_USERNAME'] = 'librarymanagementprjoect@gmail.com'  # Use the provided email
+app.config['MAIL_PASSWORD'] = 'ykqy zkvd zzak ujpa'                    # Use the provided email password
+app.config['MAIL_DEFAULT_SENDER'] = 'librarymanagementprjoect@gmail.com'  # Use the provided email
 app.config['MONGODB_URI'] = 'mongodb+srv://whitedevil7628:devil010@cluster0.gr1wse1.mongodb.net/'
+
 
 # Initialize Flask-Mail
 mail = Mail(app)
@@ -502,8 +503,8 @@ def verification(email):
 def send_verification_email(email, otp):
     port = 465
     smtp_server = "smtp.gmail.com"
-    sender_email = "sanjivinihealthcarecenter@gmail.com"  # Enter your email address
-    password = "doszhhhwkuxdojsr"  # Enter your password
+    sender_email = "librarymanagementprjoect@gmail.com"  # Enter your email address
+    password = "ykqy zkvd zzak ujpa"  # Enter your password
     
     message = f"""\
     Subject: Email Verification
@@ -585,4 +586,6 @@ def logout():
     flash('You have been logged out successfully.', 'success')
     # Redirect to the login page
     return redirect(url_for('login'))
+
+
 
